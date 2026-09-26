@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Yohan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <header>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu">
+        <!-- mise en place du burger pour responsive-->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">
+        <label for="nav-toggle" class="nav-burger">
             <span></span><span></span><span></span>
         </label>
+
+        <!-- liens vers les autres onglets-->
         <nav>
-            <a href="index.html">Accueil</a>
+            <a href="index.html" class="active">Accueil</a>
             <a href="presentation.html">Présentation</a>
-            <a href="xp_pro.html"> Expérience professionnelle et Diplômes</a>
+            <a href="experience_pro.html"> Expérience professionnelle et Diplômes</a>
             <a href="projets.html">Projets</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
+    <!-- boutons linkedin et téléchargement CV-->
     <section id="présentation">
         <h1>Bonjour, je suis Yohan</h1>
         <h2>Bienvenue sur mon portfolio</h2>
-        <a class="btn" href="presentation.html">Découvrir mon parcours</a>
         <a class="btn" href="cv_avronsart_yohan.pdf" target="_blank">Télécharger mon CV</a>
         <a class="btn" href="https://www.linkedin.com/in/yohan-avronsart-973181307?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">Voir mon profil Linkedin</a>
     </section>

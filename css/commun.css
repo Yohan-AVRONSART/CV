@@ -1,0 +1,332 @@
+/* =========================================================
+   STYLES COMMUNS À TOUTES LES PAGES
+   Chargé en premier par chaque page, avant sa feuille de style dédiée.
+   Contient : reset, couleurs, header/navigation, menu burger,
+   contenu principal, boutons et sidebar (presentation + xp_pro)
+   ========================================================= */
+
+
+/* ----- RESET ----- */
+/* garantir un rendu homogène entre navigateurs*/
+/* Supprime les marges/paddings par défaut, inclut bordure et padding
+   dans la taille des éléments et applique une police commune */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Les images ne dépassent jamais leur conteneur et gardent leurs proportions ;
+   display: block supprime l'espace vide sous l'image */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----- COULEURS ----- */
+/* Variables CSS réutilisées dans tous les fichiers : changer une valeur ici
+   modifie la couleur partout sur le site */
+:root {
+    --bleu-clair: #86d9fa; /* couleur de fond des boutons*/
+    --bleu-actif: #5fb8dc; /* couleur de l'onglet actif */
+    --gris-fonce: #2C3E50; /* couleur de la police d'écriture*/
+    --gris-clair: #E8F4FA;  /* couleur du fond*/
+    --blanc: #FFFFFF; /* couleur du header */
+}
+
+/* ----- BODY ----- */
+/* Couleur de fond et couleur de texte par défaut de toutes les pages */
+body {
+    background-color: var(--gris-clair);
+    color: var(--gris-fonce);
+}
+
+/* Layout desktop */
+/* Pages avec barre latérale (presentation, xp_pro) :
+   la sidebar et le contenu principal sont placés côte à côte */
+.layout-aside {
+    display: flex;
+}
+
+
+/* ----- HEADER / NAV ----- */
+/* Bandeau blanc en haut de page contenant le menu ;
+   clamp() adapte le padding à la largeur de l'écran (min 12px, max 20px) */
+header {
+    background-color: var(--blanc);
+    padding: clamp(12px, 3vw, 20px);
+    border-bottom: 1px solid #ddd;
+}
+
+/* Liens du menu alignés horizontalement et centrés,
+   ils passent à la ligne s'il n'y a pas assez de place */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(12px, 2.5vw, 30px);
+    justify-content: center;
+}
+
+/* Style des liens du menu : sans soulignement, en gras,
+   avec une transition douce de la couleur au survol.
+   position: relative sert de repère pour la barre animée (::after) */
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--gris-fonce);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Barre bleue animée sous le lien */
+/* Largeur 0 au repos : elle est invisible jusqu'au survol */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--bleu-clair);
+    transition: width 0.3s ease;
+}
+
+/* Au survol, le texte du lien passe en bleu */
+nav a:hover {
+    color: var(--bleu-clair);
+}
+
+/* Au survol, la barre s'étend sur toute la largeur du lien */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Onglet de la page actuellement sélectionnée */
+/* Texte en bleu plus soutenu pour indiquer la page en cours */
+nav a.active {
+    color: var(--bleu-actif);
+}
+
+/* La barre reste affichée en permanence sous l'onglet actif */
+nav a.active::after {
+    width: 100%;
+    background-color: var(--bleu-actif);
+}
+
+/* ----- MENU BURGER ----- */
+/* Menu mobile sans JavaScript : une case à cocher cachée ouvre/ferme
+   le menu, et son <label> sert de bouton (les trois barres) */
+
+/* La case à cocher reste focusable au clavier mais invisible à l'écran */
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+/* Le bouton burger est caché sur ordinateur ;
+   il n'apparaît qu'en version mobile (voir section MOBILE) */
+.nav-burger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Chacune des trois barres horizontales de l'icône burger */
+.nav-burger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--gris-fonce);
+    border-radius: 2px;
+}
+
+/* Contour visible sur le burger quand on navigue au clavier (accessibilité) */
+.nav-toggle:focus-visible + .nav-burger {
+    outline: 2px solid var(--bleu-clair);
+    outline-offset: 4px;
+}
+
+/* ----- BOUTONS ----- */
+/* Boutons (Télécharger mon CV, LinkedIn, Envoyer le message) :
+   fond bleu clair, coins arrondis, sans soulignement */
+.btn {
+    background-color: var(--bleu-clair);
+    color: var(--gris-fonce);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Au survol, les couleurs du bouton s'inversent (fond foncé, texte blanc) */
+.btn:hover {
+    background-color: var(--gris-fonce);
+    color: var(--blanc);
+}
+
+/* ----- ASIDE ----- */
+/* Barre latérale (photo, soft skills, passions, diplômes) :
+   largeur fixe de 22 %, hauteur de l'écran, contenu centré en colonne */
+.sidebar {
+    flex: 0 0 22%;
+    min-height: 100vh;
+    background-color: var(--blanc);
+    border-right: 1px solid #ddd;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Photo de profil : 70 % de la sidebar, limitée à 227px, coins arrondis */
+.sidebar img {
+    width: 70%;
+    max-width: 227px;
+    border-radius: 10px;
+}
+
+/* ----- MAIN ----- */
+/* Zone de contenu principal : prend tout l'espace restant à côté de la sidebar.
+   min-width: 0 évite que du contenu trop large ne fasse déborder la page */
+main {
+    padding: clamp(20px, 5vw, 40px);
+    flex: 1;
+    min-width: 0;
+}
+
+/* Titre principal des pages, taille fluide selon l'écran */
+main h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 20px;
+}
+
+/* Paragraphes du contenu principal, interligne aéré pour la lisibilité */
+main p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.6;
+}
+
+
+/* ----- MOBILE ----- */
+/* Styles appliqués aux écrans de 767px de large ou moins (téléphones) */
+@media screen and (max-width: 767px) {
+    /* Le header devient une barre avec le burger à droite */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Le bouton burger devient visible, calé à droite */
+    .nav-burger {
+        display: block;
+        align-self: flex-end;
+    }
+
+    /* Menu replié par défaut, déplié quand la case est cochée */
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Quand la case à cocher est cochée (clic sur le burger), le menu s'affiche */
+    .nav-toggle:checked ~ nav {
+        display: flex;
+    }
+
+    /* Liens du menu mobile empilés, pleine largeur, séparés par un trait */
+    nav a {
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid #ddd;
+        font-size: 1rem;
+        /* hauteur de ligne fixe : chaque lien a une hauteur entière en pixels,
+           sinon le trait tombe « entre deux pixels » et paraît dédoublé */
+        line-height: 1.25;
+    }
+
+    /* Pas de barre animée sur mobile : elle s'ajouterait au trait gris
+       de séparation et on verrait deux traits sous le lien */
+    nav a::after {
+        display: none;
+    }
+
+    /* C'est le trait de séparation lui-même qui devient bleu
+       au survol et sous l'onglet de la page en cours ;
+       l'ombre intérieure de 1px l'épaissit à 2px sans décaler les liens */
+    nav a:hover {
+        border-bottom-color: var(--bleu-clair);
+        box-shadow: inset 0 -1px 0 var(--bleu-clair);
+    }
+
+    nav a.active {
+        border-bottom-color: var(--bleu-actif);
+        box-shadow: inset 0 -1px 0 var(--bleu-actif);
+    }
+
+    /* Une seule colonne : le contenu (qui porte le menu) passe en premier,
+       la sidebar bascule en dessous */
+    .layout-aside {
+        flex-direction: column;
+    }
+
+    /* order: -1 place le <main> avant la sidebar à l'affichage */
+    .layout-aside main {
+        order: -1;
+    }
+
+    /* La sidebar prend toute la largeur et perd sa hauteur minimale ;
+       la bordure droite est remplacée par une bordure basse */
+    .sidebar {
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: 0;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+    }
+
+    /* Photo de profil plus petite sur mobile */
+    .sidebar img {
+        width: 50%;
+        max-width: 160px;
+    }
+
+    /* Boutons empilés, pleine largeur (max 320px), texte centré */
+    .btn {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+    }
+}
+
+
+/* ----- TABLETTE ----- */
+/* Styles appliqués aux écrans entre 768px et 1023px de large */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Sidebar un peu plus large que sur ordinateur */
+    .sidebar {
+        flex: 0 0 30%;
+    }
+
+    /* Photo de profil plus grande dans la sidebar */
+    .sidebar img {
+        width: 80%;
+    }
+
+    /* Liens du menu légèrement plus petits */
+    nav a {
+        font-size: 1rem;
+    }
+}

@@ -4,35 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets – Yohan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/projets.css">
 </head>
 
 <body>
-    <header>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu">
-            <span></span><span></span><span></span>
-        </label>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="xp_pro.html"> Expérience professionnelle et Diplômes</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
+    
     <main>
+        <header>
+            <!-- mise en place du burger pour responsive-->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">
+            <label for="nav-toggle" class="nav-burger">
+                <span></span><span></span><span></span>
+            </label>
+
+            <!-- liens vers les autres onglets-->
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="presentation.html">Présentation</a>
+                <a href="experience_pro.html"> Expérience professionnelle et Diplômes</a>
+                <a href="projets.html" class="active">Projets</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
         <h1>Mes projets</h1>
 
+        <!-- création de classes pour mettre le texte dans des bulles dans le css-->
         <div class="project-card">
             <h2>Data process</h2>
-            <p>Description du projet…</p>
+            <p>Création de script python à l'aide de l'IA.<br>
+            Nettoyage de fichiers excels de données posturales et calculs de coefficients.<br>
+            Modification de scrip bash, dans des scènes dans des casques de réalité virtuelle</p>
         </div>
 
         <div class="project-card">
-            <h2>Projet 2</h2>
-            <p>Description du projet…</p>
+            <h2>Création d'un jeu du pendu</h2>
+            <p>Création d'un jeu du pendu sur Python lors de la piscine Epitech.<br>
+            Utilisation des modules pygame, random, time <br>
+            Lien entre le terminal et une interface graphique </p>
+            <img src="pictures/Hangman.png" alt="Photo de profil">
         </div>
     </main>
 </body>

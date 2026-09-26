@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact – Yohan</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
-    <header>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-burger" aria-label="Ouvrir le menu">
-            <span></span><span></span><span></span>
-        </label>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="presentation.html">Présentation</a>
-            <a href="xp_pro.html"> Expérience professionnelle et Diplômes</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
+    
     <main>
+        <!-- mise en place du burger pour responsive-->
+        <header>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">
+            <label for="nav-toggle" class="nav-burger">
+                <span></span><span></span><span></span>
+            </label>
+
+            <!-- liens vers les autres onglets-->
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="presentation.html">Présentation</a>
+                <a href="experience_pro.html"> Expérience professionnelle et Diplômes</a>
+                <a href="projets.html">Projets</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
         <h1>Me contacter</h1>
         <p>Remplissez le formulaire ci-dessous : votre logiciel de messagerie s'ouvrira avec le message pré-rempli.</p>
 
+        <!-- Mise en place du form avec mailto pour ouvrir directement la page mail du visiteur -->
         <form class="contact-form"
               action="mailto:yohanavronsart@gmail.com?subject=Message%20depuis%20le%20portfolio"
               method="post"
@@ -55,6 +60,7 @@
             <button type="submit" class="btn">Envoyer le message</button>
         </form>
 
+        <!-- mon adresse mail pour me joindre le visiteur a des problèmes avec le form-->
         <p class="form-note">
             Si votre message n'apparaît pas dans la fenêtre qui s'ouvre, écrivez-moi directement à
             <a href="mailto:yohanavronsart@gmail.com">yohanavronsart@gmail.com</a>.

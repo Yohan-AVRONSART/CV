@@ -1,0 +1,100 @@
+/* =========================================================
+   PAGE CONTACT (contact.html)
+   Chargé après commun.css
+   ========================================================= */
+
+/* Formulaire : champs empilés en colonne,
+   largeur limitée à 640px pour rester lisible */
+.contact-form {
+    max-width: 640px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Prenom + Nom cote a cote, empiles automatiquement sous ~440px */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Un groupe = un libellé + son champ, placés l'un sous l'autre */
+.form-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Le grow ne s'applique QUE dans .form-row : sinon les groupes du formulaire
+   (colonne) s'etireraient verticalement et creuseraient un vide */
+.form-row .form-group {
+    flex: 1 1 200px;
+}
+
+/* Libellés des champs en gras */
+.form-group label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Champs de saisie et zone de texte : pleine largeur, fond blanc,
+   bordure grise et coins arrondis */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: var(--gris-fonce);
+    background-color: var(--blanc);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Zone de message : hauteur minimale confortable,
+   redimensionnable uniquement en hauteur */
+.form-group textarea {
+    min-height: 160px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+/* Champ sélectionné : bordure et contour bleus pour indiquer où l'on écrit */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--bleu-clair);
+    outline: 2px solid var(--bleu-clair);
+    outline-offset: 1px;
+}
+
+/* Le bouton d'envoi reprend .btn, avec les remises a zero propres a <button> */
+/* align-self: flex-start empêche le bouton de s'étirer sur toute la largeur */
+button.btn {
+    align-self: flex-start;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+/* Repli si le client mail du visiteur ne recupere pas le corps du message */
+/* Note sous le formulaire rappelant l'adresse e-mail en clair */
+.form-note {
+    max-width: 640px;
+    margin-top: 25px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Lien de l'adresse e-mail dans la note, en gras */
+.form-note a {
+    color: var(--gris-fonce);
+    font-weight: bold;
+}
+
+/* Le lien passe en bleu au survol */
+.form-note a:hover {
+    color: var(--bleu-clair);
+}

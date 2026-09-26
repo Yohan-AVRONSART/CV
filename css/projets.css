@@ -1,0 +1,13 @@
+/* Carte blanche encadrée pour chaque projet */
+.project-card {
+    background-color: var(--blanc);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Espace entre le titre du projet et sa description */
+.project-card h2 {
+    margin-bottom: 10px;
+}

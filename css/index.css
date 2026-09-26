@@ -1,0 +1,33 @@
+/* =========================================================
+   PAGE D'ACCUEIL (index.html)
+   Chargé après commun.css
+   ========================================================= */
+
+/* Section d'accueil centrée verticalement et horizontalement,
+   qui occupe presque toute la hauteur de l'écran */
+#présentation {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 20px;
+    /* taille heritee par les .btn : fluide pour ne pas deborder sur mobile */
+    font-size: clamp(1.1rem, 3.5vw, 3rem);
+}
+
+/* Grand titre d'accueil dont la taille s'adapte à l'écran */
+#présentation h1 {
+    font-size: clamp(1.75rem, 7vw, 6rem);
+}
+
+/* ----- MOBILE ----- */
+/* La section d'accueil n'occupe plus toute la hauteur de l'écran */
+@media screen and (max-width: 767px) {
+    #présentation {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+}

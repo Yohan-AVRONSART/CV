@@ -1,0 +1,177 @@
+/* =========================================================
+   PAGE EXPÉRIENCES ET DIPLÔMES (experience_pro.html)
+   Chargé après commun.css
+   ========================================================= */
+
+/* ----- SECTION DIPLÔMES ----- */
+/* Bloc des diplômes dans la sidebar,
+   remonté légèrement pour se rapprocher de la photo */
+.diplomes {
+    margin-top: -10px;
+}
+
+/* Titre « Diplômes » */
+.diplomes h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--gris-fonce);
+}
+
+/* Liste des diplômes sans puces ni retrait */
+.diplomes ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Chaque diplôme est présenté dans une petite carte encadrée */
+.diplomes li {
+    background-color: var(--blanc);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1.2rem;
+}
+
+
+/* ----- BULLE DES EXPÉRIENCES ----- */
+/* Grande bulle blanche qui regroupe les expériences
+   (même style que les bulles de la page présentation) */
+.experience-bubble {
+    background-color: var(--blanc);
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.08);
+}
+
+/* Supprime toute marge de la section à l'intérieur de la bulle */
+.experience-bubble .experience_pro {
+    margin: 0;
+}
+
+/* Espace sous le titre « Expériences professionnelles » */
+.experience-bubble .experience_pro h1 {
+    margin-bottom: 20px;
+}
+
+/* ----- FRISE CHRONOLOGIQUE ----- */
+/* Liste des expériences : ligne verticale bleue sur la gauche
+   qui relie toutes les expériences, de la plus récente à la plus ancienne */
+.timeline {
+    list-style: none;
+    position: relative;
+    padding-left: 32px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: var(--bleu-clair);
+}
+
+/* Une expérience : bloc espacé du suivant ;
+   position: relative sert de repère pour la pastille (::before) */
+.experience-item {
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.experience-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Pastille ronde posée sur la ligne, au niveau de chaque eexperienceérience */
+.experience-item::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--blanc);
+    border: 3px solid var(--bleu-actif);
+}
+
+/* Période affichée dans une étiquette arrondie bleu clair */
+.experience-item .experience-date {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    background-color: var(--gris-clair);
+    color: var(--gris-fonce);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Intitulé du poste */
+.experience-item h2 {
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.3;
+}
+
+/* Entreprise et type de contrat, en bleu sous l'intitulé */
+.experience-item .experience-entreprise {
+    margin: 4px 0 12px;
+    color: var(--bleu-actif);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Liste des missions : puces remplacées par de petits tirets bleus */
+.experience-taches {
+    list-style: none;
+}
+
+.experience-taches li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+.experience-taches li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 10px;
+    height: 2px;
+    background-color: var(--bleu-clair);
+}
+
+
+/* ----- MOBILE ----- */
+/* Bulle et frise plus compactes */
+@media screen and (max-width: 767px) {
+    .experience-bubble {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .timeline {
+        padding-left: 26px;
+    }
+
+    .timeline::before {
+        left: 6px;
+    }
+
+    .experience-item {
+        padding-bottom: 24px;
+    }
+
+    .experience-item::before {
+        left: -26px;
+        width: 14px;
+        height: 14px;
+    }
+}
